@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trắc Nghiệm Triết Học: 3.2. Ý Nghĩa Phương Pháp Luận</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800 flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="bg-indigo-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div>
+                <h1 class="text-xl sm:text-2xl font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-brain text-indigo-400"></i> Trắc Nghiệm Triết Học Mác - Lênin
+                </h1>
+                <p class="text-xs sm:text-sm text-indigo-200 mt-0.5">Bài 3: 3.2. Ý nghĩa phương pháp luận từ mối quan hệ giữa vật chất và ý thức</p>
+            </div>
+            <div id="timer-container" class="hidden bg-indigo-800 border border-indigo-700 px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 shadow-inner">
+                <i class="fa-regular fa-clock text-amber-400 animate-pulse">00:00</i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8 w-full flex-grow">
+
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="bg-white rounded-2xl shadow-xl p-6 sm:p-10 border border-slate-100 text-center">
+            <div class="w-20 h-20 bg-indigo-50 text-indigo-600 rounded-2xl mx-auto flex items-center justify-center text-3xl mb-6 shadow-sm">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2">Kiểm Tra Kiến Thức Triết Học</h2>
+            <p class="text-indigo-600 font-bold text-sm sm:text-base mb-3">Nội dung: 3.2. Ý nghĩa phương pháp luận từ mối quan hệ biện chứng giữa vật chất và ý thức</p>
+            <p class="text-slate-600 max-w-xl mx-auto text-sm sm:text-base mb-8 leading-relaxed">
+                Bộ đề gồm <strong class="text-indigo-600">20 câu hỏi</strong> đa dạng hình thức: Chọn 1 đáp án, Chọn nhiều đáp án, Đúng/Sai và Nối cột tương ứng giúp bạn làm chủ nội dung phương pháp luận.
+            </p>
+
+            <!-- Box Thành Viên Nhóm -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 max-w-lg mx-auto mb-8 text-left shadow-sm">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-700 mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-users"></i> Thành viên nhóm thực hiện:
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-slate-700 font-medium">
+                    <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center font-bold shrink-0">1</span> Nguyễn Hoàng Vũ</div>
+                    <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center font-bold shrink-0">2</span> Đào Minh Quý</div>
+                    <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center font-bold shrink-0">3</span> Tô Văn Tú</div>
+                    <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center font-bold shrink-0">4</span> Lý Hoàng Thiên</div>
+                    <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center font-bold shrink-0">5</span> Nguyễn Xuân Khánh</div>
+                    <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center font-bold shrink-0">6</span> Tô Đức Mạnh</div>
+                </div>
+            </div>
+
+            <button onclick="startQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-indigo-200 transition-all transform hover:-translate-y-0.5 text-base flex items-center gap-3 mx-auto">
+                <span>Bắt Đầu Làm Bài</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="hidden space-y-6">
+            <!-- Progress & Navigation status -->
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="w-full sm:w-2/3">
+                    <div class="flex justify-between text-xs font-semibold text-slate-600 mb-1.5">
+                        <span id="progress-text">Câu hỏi 1 / 20</span>
+                        <span id="progress-percent">5%</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="bg-indigo-600 h-full transition-all duration-300 rounded-full" style="width: 5%"></div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+                    <button onclick="prevQuestion()" id="prev-btn" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-semibold transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5">
+                        <i class="fa-solid fa-chevron-left"></i> Trước
+                    </button>
+                    <button onclick="nextQuestion()" id="next-btn" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-semibold transition flex items-center gap-1.5">
+                        Tiếp <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question Box -->
+            <div id="question-container" class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-slate-100">
+                <!-- Dynamic question content injected by JS -->
+            </div>
+
+            <!-- Quick Jump Grid -->
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Danh sách câu hỏi:</p>
+                <div id="question-jump-grid" class="grid grid-cols-10 gap-2">
+                    <!-- Jump buttons populated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="hidden bg-white rounded-2xl shadow-xl p-6 sm:p-10 border border-slate-100 text-center space-y-6">
+            <div class="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-2xl mx-auto flex items-center justify-center text-3xl shadow-sm">
+                <i class="fa-solid fa-award"></i>
+            </div>
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">Hoàn Thành Bài Kiểm Tra!</h2>
+                <p class="text-slate-500 text-sm">Dưới đây là kết quả chi tiết bài làm của bạn</p>
+            </div>
+
+            <div class="inline-flex flex-col items-center justify-center bg-slate-50 border border-slate-200 px-8 py-6 rounded-2xl">
+                <span class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-1">Điểm số của bạn</span>
+                <div class="text-4xl sm:text-5xl font-black text-indigo-600" id="score-display">0 / 20</div>
+                <div class="text-xs text-slate-400 mt-1" id="score-percent-text">Đạt: 0%</div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 pt-2">
+                <button onclick="reviewAnswers()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2">
+                    <i class="fa-solid fa-clipboard-list"></i> Xem Lại Đáp Án & Giải Thích
+                </button>
+                <button onclick="restartQuiz()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-6 py-3 rounded-xl transition flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-right"></i> Làm Lại Từ Đầu
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12 text-center text-xs text-slate-500 space-y-2">
+        <p class="font-semibold text-indigo-900">Môn Triết học Mác - Lênin | Nhóm thực hiện: Nguyễn Hoàng Vũ, Đào Minh Quý, Tô Văn Tú, Lý Hoàng Thiên, Nguyễn Xuân Khánh, Tô Đức Mạnh</p>
+        <p>© 2026 - Bài 3: 3.2. Ý nghĩa phương pháp luận từ mối quan hệ giữa vật chất và ý thức</p>
+    </footer>
+
+    <!-- JavaScript Quiz Logic -->
+    <script>
+        const questions = [
+            // PART 1: Single Choice (Q1 - Q8)
+            {
+                id: 1,
+                type: 'single',
+                question: "Từ mối quan hệ biện chứng giữa vật chất và ý thức, triết học Mác - Lênin rút ra nguyên tắc phương pháp luận quan trọng nào?",
+                options: [
+                    "Tuyệt đối hóa vai trò của ý thức và ý chí chủ quan.",
+                    "Tôn trọng tính khách quan kết hợp phát huy tính năng động chủ quan.",
+                    "Coọi nhẹ hoạt động thực tiễn và chỉ tập trung vào tư duy lý luận.",
+                    "Tách rời hoàn toàn giữa nhận thức lý luận và thực tiễn."
+                ],
+                correct: 1,
+                explanation: "Nguyên tắc phương pháp luận được rút ra là tôn trọng tính khách quan kết hợp phát huy tính năng động chủ quan[cite: 17]."
+            },
+            {
+                id: 2,
+                type: 'single',
+                question: "Trong nhận thức và hoạt động thực tiễn, mọi chủ trương, đường lối, kế hoạch, mục tiêu phải xuất phát từ đâu?",
+                options: [
+                    "Ý chí mong muốn chủ quan của nhà lãnh đạo.",
+                    "Thực tế khách quan, từ những điều kiện, tiền đề vật chất hiện có.",
+                    "Sự tưởng tượng trừu tượng không có căn cứ.",
+                    "Các quan niệm siêu hình cổ điển."
+                ],
+                correct: 1,
+                explanation: "Mọi chủ trương, đường lối, kế hoạch, mục tiêu đều phải xuất phát từ thực tế khách quan, từ những điều kiện, tiền đề vật chất hiện có[cite: 17]."
+            },
+            {
+                id: 3,
+                type: 'single',
+                question: "Điều gì sẽ xảy ra nếu trong hoạt động thực tiễn chúng ta không tôn trọng tính khách quan và quy luật khách quan?",
+                options: [
+                    "Đạt được thành công nhanh chóng ngoài mong đợi.",
+                    "Phải gánh chịu những hậu quả tai hại khôn lường.",
+                    "Giúp phát triển lực lượng sản xuất vượt bậc.",
+                    "Không gây ra bất kỳ ảnh hưởng nào."
+                ],
+                correct: 1,
+                explanation: "Phải tôn trọng và hành động theo quy luật khách quan, nếu không làm như vậy, chúng ta sẽ phải gánh chịu những hậu quả tai hại khôn lường[cite: 17]."
+            },
+            {
+                id: 4,
+                type: 'single',
+                question: "Việc phát huy tính năng động sáng tạo của ý thức đòi hỏi chúng ta phải chống lại tư tưởng và thái độ nào?",
+                options: [
+                    "Chủ động, tích cực và đổi mới.",
+                    "Thụ động, ỷ lại, ngồi chờ, bảo thủ, trì trệ, thiếu tính sáng tạo.",
+                    "Dũng cảm thử nghiệm cái mới.",
+                    "Năng động và cầu thị."
+                ],
+                correct: 1,
+                explanation: "Phải phát huy tính năng động sáng tạo của ý thức, chống tư tưởng, thái độ thụ động, ỷ lại, ngồi chờ, bảo thủ, trì trệ, thiếu tính sáng tạo[cite: 17]."
+            },
+            {
+                id: 5,
+                type: 'single',
+                question: "Theo tài liệu, trong công tác tư tưởng, chúng ta cần coi trọng việc giáo dục hệ tư tưởng nào?",
+                options: [
+                    "Hệ tư tưởng tư sản và thực dụng.",
+                    "Chủ nghĩa Mác - Lênin và tư tưởng Hồ Chí Minh.",
+                    "Các quan điểm triết học duy tâm tôn giáo.",
+                    "Lối sống hưởng thụ cá nhân."
+                ],
+                correct: 1,
+                explanation: "Phải coi trọng công tác tư tưởng và giáo dục lý luận chủ nghĩa Mác - Lênin và tư tưởng Hồ Chí Minh[cite: 17]."
+            },
+            {
+                id: 6,
+                type: 'single',
+                question: "Để thực hiện nguyên tắc tôn trọng tính khách quan kết hợp phát huy tính năng động chủ quan, trong nhận thức và hành động chúng ta cần giải quyết đúng đắn quan hệ nào?",
+                options: [
+                    "Quan hệ lợi ích; phải biết kết hợp hài hòa lợi ích cá nhân, lợi ích tập thể, lợi ích xã hội.",
+                    "Quan hệ cạnh tranh tuyệt đối giữa các cá nhân.",
+                    "Quan hệ độc quyền lợi ích nhóm cục bộ.",
+                    "Quan hệ tách rời hoàn toàn lợi ích cá nhân ra khỏi xã hội."
+                ],
+                correct: 0,
+                explanation: "Phải nhận thức và giải quyết đúng đắn các quan hệ lợi ích, phải biết kết hợp hài hòa lợi ích cá nhân, lợi ích tập thể, lợi ích xã hội[cite: 17]."
+            },
+            {
+                id: 7,
+                type: 'single',
+                question: "Yêu cầu về mặt đạo đức đối với cán bộ, đảng viên trong nhận thức và hành động theo nguyên tắc phương pháp luận là gì?",
+                options: [
+                    "Phải có động cơ trong sáng, thái độ thật sự khách quan, khoa học, không vụ lợi.",
+                    "Phải ưu tiên lợi ích cá nhân lên trên hết.",
+                    "Hành động theo cảm tính và lợi ích trước mắt.",
+                    "Tránh xa các hoạt động thực tiễn xã hội."
+                ],
+                correct: 0,
+                explanation: "Phải có động cơ trong sáng, thái độ thật sự khách quan, khoa học, không vụ lợi trong nhận thức và hành động của mình[cite: 17]."
+            },
+            {
+                id: 8,
+                type: 'single',
+                question: "Trong điều kiện nền văn minh trí tuệ, kinh tế tri thức và toàn cầu hóa hiện nay, việc giáo dục và nâng cao yếu tố nào là cực kỳ cấp thiết?",
+                options: [
+                    "Nâng cao trình độ tri thức khoa học, củng cố bồi dưỡng nhiệt tình, ý chí cách mạng.",
+                    "Tư tưởng trông chờ vào viện trợ bên ngoài.",
+                    "Lối sống khép kín, cô lập với thế giới.",
+                    "Giảm thiểu việc học tập và nghiên cứu lý luận."
+                ],
+                correct: 0,
+                explanation: "Phải giáo dục và nâng cao trình độ tri thức khoa học, củng cố, bồi dưỡng nhiệt tình, ý chí cách mạng trong nền kinh tế tri thức, toàn cầu hóa[cite: 17]."
+            },
+
+            // PART 2: Multiple Choice (Q9 - Q12)
+            {
+                id: 9,
+                type: 'multiple',
+                question: "Nguyên tắc phương pháp luận 'tôn trọng tính khách quan kết hợp phát huy tính năng động chủ quan' đòi hỏi những điều gì? (Chọn tất cả đáp án đúng)",
+                options: [
+                    "Xuất phát từ thực tế khách quan, từ những điều kiện, tiền đề vật chất hiện có.",
+                    "Tôn trọng và hành động theo quy luật khách quan.",
+                    "Phát huy tính năng động sáng tạo của ý thức và vai trò nhân tố con người.",
+                    "Tuyệt đối hóa ý chí chủ quan, bất chấp quy luật khách quan."
+                ],
+                correct: [0, 1, 2],
+                explanation: "Nguyên tắc này đòi hỏi xuất phát từ thực tế, tôn trọng quy luật khách quan và phát huy tính năng động chủ quan; tuyệt đối hóa ý chí chủ quan là sai lầm duy ý chí[cite: 17]."
+            },
+            {
+                id: 10,
+                type: 'multiple',
+                question: "Để phát huy vai trò của nhân tố con người và tính năng động sáng tạo của ý thức, chúng ta cần làm gì? (Chọn tất cả đáp án đúng)",
+                options: [
+                    "Chống tư tưởng, thái độ thụ động, ỷ lại, ngồi chờ, bảo thủ, trì trệ.",
+                    "Coigiá trị và coi trọng công tác tư tưởng, giáo dục tư tưởng.",
+                    "Bảo đảm sự thống nhất giữa nhiệt tình cách mạng và tri thức khoa học.",
+                    "Giữ gìn, rèn luyện phẩm chất đạo đức cho cán bộ, đảng viên."
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: "Tất cả các nội dung trên đều được nêu trong tài liệu nhằm phát huy tính năng động sáng tạo và vai trò nhân tố con người[cite: 17]."
+            },
+            {
+                id: 11,
+                type: 'multiple',
+                question: "Những biểu hiện của việc vi phạm nguyên tắc tôn trọng tính khách quan trong thực tiễn bao gồm những gì? (Chọn tất cả đáp án đúng)",
+                options: [
+                    "Hành động xuất phát từ ý muốn chủ quan, tình cảm cá nhân hoặc sự áp đặt duy ý chí.",
+                    "Bất chấp các quy luật khách quan và điều kiện tiền đề vật chất hiện có.",
+                    "Chủ quan, nóng vội, đốt cháy giai đoạn.",
+                    "Tôn trọng triệt để các quy luật khách quan của tự nhiên và xã hội."
+                ],
+                correct: [0, 1, 2],
+                explanation: "Vi phạm nguyên tắc tôn trọng tính khách quan dẫn đến hành động chủ quan, áp đặt, bất chấp quy luật và nóng vội, đốt cháy giai đoạn[cite: 17]."
+            },
+            {
+                id: 12,
+                type: 'multiple',
+                question: "Theo quan điểm triết học Mác - Lênin, việc giải quyết đúng đắn các quan hệ lợi ích đòi hỏi điều gì? (Chọn tất cả đáp án đúng)",
+                options: [
+                    "Kết hợp hài hòa lợi ích cá nhân, lợi ích tập thể và lợi ích xã hội.",
+                    "Có động cơ trong sáng trong nhận thức và hành động.",
+                    "Có thái độ thật sự khách quan, khoa học, không vụ lợi.",
+                    "Chỉ chăm lo cho lợi ích cá nhân mà bỏ qua lợi ích tập thể."
+                ],
+                correct: [0, 1, 2],
+                explanation: "Phải kết hợp hài hòa lợi ích cá nhân, tập thể, xã hội và có động cơ trong sáng, khách quan, không vụ lợi[cite: 17]."
+            },
+
+            // PART 3: True / False Grid (Q13 - Q14)
+            {
+                id: 13,
+                type: 'tf-grid',
+                question: "Đánh giá tính đúng/sai của các nhận định sau về ý nghĩa phương pháp luận:",
+                statements: [
+                    { text: "Mọi chủ trương, đường lối, kế hoạch đều phải xuất phát từ thực tế khách quan.", answer: true },
+                    { text: "Có thể tùy ý đề ra mục tiêu theo mong muốn chủ quan mà không cần xét đến điều kiện vật chất.", answer: false },
+                    { text: "Phát huy tính năng động chủ quan nghĩa là phải chống tư tưởng thụ động, ỷ lại, bảo thủ, trì trệ.", answer: true },
+                    { text: "Công tác tư tưởng và giáo dục lý luận không có vai trò gì trong việc phát huy nhân tố con người.", answer: false }
+                ],
+                explanation: "Phải xuất phát từ thực tế khách quan[cite: 17]; không được tùy ý chủ quan[cite: 17]; phải chống thụ động bảo thủ[cite: 17]; công tác tư tưởng rất quan trọng[cite: 17]."
+            },
+            {
+                id: 14,
+                type: 'tf-grid',
+                question: "Đánh giá tính đúng/sai của các nhận định sau về yêu cầu đạo đức và trí tuệ trong thời đại mới:",
+                statements: [
+                    { text: "Trong nền kinh tế tri thức, cần coi trọng việc giáo dục nâng cao trình độ tri thức khoa học.", answer: true },
+                    { text: "Cán bộ, đảng viên cần bảo đảm sự thống nhất giữa nhiệt tình cách mạng và tri thức khoa học.", answer: true },
+                    { text: "Trong nhận thức và hành động, thái độ vụ lợi cá nhân là cần thiết để tạo động lực phát triển.", answer: false },
+                    { text: "Phải biết kết hợp hài hòa lợi ích cá nhân, lợi ích tập thể và lợi ích xã hội.", answer: true }
+                ],
+                explanation: "Cần nâng cao tri thức khoa học[cite: 17]; thống nhất nhiệt tình và tri thức khoa học[cite: 17]; chống vụ lợi[cite: 17]; kết hợp hài hòa các lợi ích[cite: 17]."
+            },
+
+            // PART 4: Matching Columns (Q15 - Q20)
+            {
+                id: 15,
+                type: 'matching',
+                question: "Nối nguyên tắc phương pháp luận ở Cột A với nội dung biểu hiện tương ứng ở Cột B:",
+                columnA: [
+                    "1. Tôn trọng tính khách quan",
+                    "2. Phát huy tính năng động chủ quan",
+                    "3. Giải quyết đúng đắn quan hệ lợi ích"
+                ],
+                columnB: [
+                    "a. Chống tư tưởng thụ động, ỷ lại, ngồi chờ, bảo thủ, trì trệ; coi trọng công tác tư tưởng.",
+                    "b. Xuất phát từ thực tế khách quan, từ điều kiện, tiền đề vật chất hiện có và hành động theo quy luật.",
+                    "c. Kết hợp hài hòa lợi ích cá nhân, tập thể, xã hội với động cơ trong sáng, không vụ lợi."
+                ],
+                correctMatching: { 0: 1, 1: 0, 2: 2 },
+                explanation: "1-b, 2-a, 3-c theo nội dung tài liệu[cite: 17]."
+            },
+            {
+                id: 16,
+                type: 'matching',
+                question: "Nối các biểu hiện sai lầm ở Cột A với hậu quả hoặc bản chất tương ứng ở Cột B:",
+                columnA: [
+                    "1. Chủ quan, duy ý chí, nóng vội",
+                    "2. Thụ động, ỷ lại, bảo thủ, trì trệ",
+                    "3. Nhận thức và hành động vụ lợi"
+                ],
+                columnB: [
+                    "a. Thiếu tính sáng tạo, đánh mất vai trò năng động của ý thức và nhân tố con người.",
+                    "b. Phải gánh chịu những hậu quả tai hại khôn lường do đi ngược quy luật khách quan.",
+                    "c. Vi phạm đạo đức và thái độ khách quan, khoa học trong hoạt động thực tiễn."
+                ],
+                correctMatching: { 0: 1, 1: 0, 2: 2 },
+                explanation: "1-b[cite: 17], 2-a[cite: 17], 3-c[cite: 17]."
+            },
+            {
+                id: 17,
+                type: 'matching',
+                question: "Nối các lĩnh vực/yêu cầu ở Cột A với định hướng hành động ở Cột B:",
+                columnA: [
+                    "1. Trong công tác xây dựng đường lối, chủ trương",
+                    "2. Trong công tác cán bộ và giáo dục",
+                    "3. Trong bối cảnh kinh tế tri thức và toàn cầu hóa"
+                ],
+                columnB: [
+                    "a. Nâng cao trình độ tri thức khoa học, củng cố ý chí cách mạng, giữ gìn đạo đức.",
+                    "b. Coi trọng giáo dục chủ nghĩa Mác - Lênin, tư tưởng Hồ Chí Minh, rèn luyện phẩm chất.",
+                    "c. Phải xuất phát từ thực tế khách quan và điều kiện tiền đề vật chất hiện có."
+                ],
+                correctMatching: { 0: 2, 1: 1, 2: 0 },
+                explanation: "1-c[cite: 17], 2-b[cite: 17], 3-a[cite: 17]."
+            },
+            {
+                id: 18,
+                type: 'matching',
+                question: "Nối các khái niệm ở Cột A với giải thích tương ứng ở Cột B:",
+                columnA: [
+                    "1. Tôn trọng tính khách quan",
+                    "2. Phát huy tính năng động chủ quan",
+                    "3. Động cơ trong sáng"
+                ],
+                columnB: [
+                    "a. Tôn trọng các quy luật khách quan của tự nhiên và xã hội trong mọi hành động.",
+                    "b. Khơi dậy tiềm năng, trí tuệ, nhiệt tình cách mạng của con người để cải tạo thực tiễn.",
+                    "c. Thái độ khách quan, khoa học, không vụ lợi trong nhận thức và thực tiễn."
+                ],
+                correctMatching: { 0: 0, 1: 1, 2: 2 },
+                explanation: "1-a[cite: 17], 2-b[cite: 17], 3-c[cite: 17]."
+            },
+            {
+                id: 19,
+                type: 'matching',
+                question: "Nối các yêu cầu thực tiễn ở Cột A với mục đích ý nghĩa ở Cột B:",
+                columnA: [
+                    "1. Coi trọng giáo dục lý luận Mác - Lênin và tư tưởng Hồ Chí Minh",
+                    "2. Kết hợp hài hòa các quan hệ lợi ích",
+                    "3. Gìn giữ, rèn luyện phẩm chất đạo đức"
+                ],
+                columnB: [
+                    "a. Tạo sự đồng thuận, đoàn kết và phát huy sức mạnh tổng hợp của cộng đồng xã hội.",
+                    "b. Bảo đảm sự thống nhất giữa nhiệt tình cách mạng và tri thức khoa học.",
+                    "c. Xây dựng đội ngũ cán bộ có thái độ thật sự khách quan, khoa học, không vụ lợi."
+                ],
+                correctMatching: { 0: 1, 1: 0, 2: 2 },
+                explanation: "1-b[cite: 17], 2-a[cite: 17], 3-c[cite: 17]."
+            },
+            {
+                id: 20,
+                type: 'matching',
+                question: "Nối các bài học kinh nghiệm phương pháp luận ở Cột A với kết quả tương ứng ở Cột B:",
+                columnA: [
+                    "1. Kết hợp đúng đắn giữa tôn trọng khách quan và phát huy chủ quan",
+                    "2. Tránh tuyệt đối hóa một chiều (hoặc duy vật siêu hình hoặc duy tâm chủ quan)",
+                    "3. Gắn liền lý luận với thực tiễn, tri thức với hành động"
+                ],
+                columnB: [
+                    "a. Tránh được sai lầm bệnh chủ quan, duy ý chí hoặc thụ động, trì trệ trong hoạt động.",
+                    "b. Đạt hiệu quả cao nhất trong việc cải tạo hiện thực khách quan.",
+                    "c. Giúp nhận thức đúng đắn bản chất mối quan hệ biện chứng giữa vật chất và ý thức."
+                ],
+                correctMatching: { 0: 1, 1: 0, 2: 2 },
+                explanation: "1-b[cite: 17], 2-a[cite: 17], 3-c[cite: 17]."
+            }
+        ];
+
+        let currentIdx = 0;
+        let userAnswers = {};
+        let timerInterval = null;
+        let secondsElapsed = 0;
+
+        function startQuiz() {
+            document.getElementById('welcome-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+            document.getElementById('timer-container').classList.remove('hidden');
+            
+            startTimer();
+            buildJumpGrid();
+            loadQuestion(0);
+        }
+
+        function startTimer() {
+            secondsElapsed = 0;
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                secondsElapsed++;
+                let mins = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
+                let secs = (secondsElapsed % 60).toString().padStart(2, '0');
+                document.querySelector('#timer-container i').nextSibling.nodeValue = ` ${mins}:${secs}`;
+            }, 1000);
+        }
+
+        function buildJumpGrid() {
+            const grid = document.getElementById('question-jump-grid');
+            grid.innerHTML = '';
+            questions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.id = `jump-btn-${idx}`;
+                btn.className = "h-9 rounded-lg text-xs font-bold border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100 transition flex items-center justify-center";
+                btn.innerText = idx + 1;
+                btn.onclick = () => goToQuestion(idx);
+                grid.appendChild(btn);
+            });
+            updateJumpGridUI();
+        }
+
+        function updateJumpGridUI() {
+            questions.forEach((q, idx) => {
+                const btn = document.getElementById(`jump-btn-${idx}`);
+                if (!btn) return;
+                
+                let isAnswered = false;
+                if (userAnswers[idx] !== undefined) {
+                    if (q.type === 'multiple') {
+                        if (userAnswers[idx].length > 0) isAnswered = true;
+                    } else if (q.type === 'tf-grid') {
+                        if (Object.keys(userAnswers[idx]).length === q.statements.length) isAnswered = true;
+                    } else if (q.type === 'matching') {
+                        if (Object.keys(userAnswers[idx]).length === q.columnA.length) isAnswered = true;
+                    } else {
+                        isAnswered = true;
+                    }
+                }
+
+                if (idx === currentIdx) {
+                    btn.className = "h-9 rounded-lg text-xs font-bold bg-indigo-600 text-white border border-indigo-600 shadow-sm flex items-center justify-center ring-2 ring-indigo-200";
+                } else if (isAnswered) {
+                    btn.className = "h-9 rounded-lg text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center justify-center";
+                } else {
+                    btn.className = "h-9 rounded-lg text-xs font-bold bg-slate-50 text-slate-700 border border-slate-200 hover:bg-slate-100 flex items-center justify-center";
+                }
+            });
+        }
+
+        function loadQuestion(idx) {
+            currentIdx = idx;
+            const q = questions[idx];
+            const container = document.getElementById('question-container');
+            
+            document.getElementById('progress-text').innerText = `Câu hỏi ${idx + 1} / ${questions.length}`;
+            let percent = Math.round(((idx + 1) / questions.length) * 100);
+            document.getElementById('progress-percent').innerText = `${percent}%`;
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+
+            document.getElementById('prev-btn').disabled = (idx === 0);
+            const nextBtn = document.getElementById('next-btn');
+            if (idx === questions.length - 1) {
+                nextBtn.innerHTML = `Nộp Bài <i class="fa-solid fa-check"></i>`;
+                nextBtn.className = "px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm font-semibold transition flex items-center gap-1.5 shadow-sm";
+                nextBtn.onclick = submitQuiz;
+            } else {
+                nextBtn.innerHTML = `Tiếp <i class="fa-solid fa-chevron-right"></i>`;
+                nextBtn.className = "px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-semibold transition flex items-center gap-1.5";
+                nextBtn.onclick = nextQuestion;
+            }
+
+            let typeBadge = "";
+            if(q.type === 'single') typeBadge = `<span class="bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full text-xs font-semibold">Chọn 1 đáp án đúng</span>`;
+            else if(q.type === 'multiple') typeBadge = `<span class="bg-purple-50 text-purple-700 border border-purple-200 px-3 py-1 rounded-full text-xs font-semibold">Chọn nhiều đáp án đúng</span>`;
+            else if(q.type === 'tf-grid') typeBadge = `<span class="bg-amber-50 text-amber-700 border border-amber-200 px-3 py-1 rounded-full text-xs font-semibold">Đúng / Sai từng nhận định</span>`;
+            else if(q.type === 'matching') typeBadge = `<span class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1 rounded-full text-xs font-semibold">Nối cột tương ứng</span>`;
+
+            let html = `
+                <div class="flex justify-between items-start gap-4 mb-4">
+                    <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-lg border border-indigo-100">Câu ${idx + 1}</span>
+                    ${typeBadge}
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-6 leading-snug">${q.question}</h3>
+            `;
+
+            if (q.type === 'single') {
+                html += `<div class="space-y-3">`;
+                q.options.forEach((opt, oIdx) => {
+                    let checked = (userAnswers[idx] === oIdx) ? 'checked' : '';
+                    let activeClass = (userAnswers[idx] === oIdx) ? 'border-indigo-600 bg-indigo-50/60 ring-1 ring-indigo-600' : 'border-slate-200 hover:bg-slate-50';
+                    html += `
+                        <label class="flex items-start gap-3.5 p-4 rounded-xl border ${activeClass} cursor-pointer transition">
+                            <input type="radio" name="q_${idx}" value="${oIdx}" ${checked} onchange="saveAnswer(${idx}, ${oIdx})" class="mt-1 text-indigo-600 focus:ring-indigo-500 w-4 h-4">
+                            <span class="text-sm sm:text-base text-slate-700 font-medium">${opt}</span>
+                        </label>
+                    `;
+                });
+                html += `</div>`;
+            } else if (q.type === 'multiple') {
+                html += `<div class="space-y-3">`;
+                q.options.forEach((opt, oIdx) => {
+                    let userArr = userAnswers[idx] || [];
+                    let checked = userArr.includes(oIdx) ? 'checked' : '';
+                    let activeClass = userArr.includes(oIdx) ? 'border-indigo-600 bg-indigo-50/60 ring-1 ring-indigo-600' : 'border-slate-200 hover:bg-slate-50';
+                    html += `
+                        <label class="flex items-start gap-3.5 p-4 rounded-xl border ${activeClass} cursor-pointer transition">
+                            <input type="checkbox" name="q_${idx}" value="${oIdx}" ${checked} onchange="saveMultipleAnswer(${idx}, ${oIdx})" class="mt-1 text-indigo-600 rounded focus:ring-indigo-500 w-4 h-4">
+                            <span class="text-sm sm:text-base text-slate-700 font-medium">${opt}</span>
+                        </label>
+                    `;
+                });
+                html += `</div>`;
+            } else if (q.type === 'tf-grid') {
+                html += `<div class="space-y-4">`;
+                q.statements.forEach((st, sIdx) => {
+                    let userObj = userAnswers[idx] || {};
+                    let val = userObj[sIdx];
+                    html += `
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <span class="text-sm sm:text-base font-medium text-slate-800 flex-grow">${sIdx + 1}. ${st.text}</span>
+                            <div class="flex gap-2 shrink-0">
+                                <button type="button" onclick="saveTFAnswer(${idx}, ${sIdx}, true)" class="px-4 py-2 rounded-lg text-xs font-bold border transition ${val === true ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm' : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100'}">ĐÚNG</button>
+                                <button type="button" onclick="saveTFAnswer(${idx}, ${sIdx}, false)" class="px-4 py-2 rounded-lg text-xs font-bold border transition ${val === false ? 'bg-rose-600 text-white border-rose-600 shadow-sm' : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100'}">SAI</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            } else if (q.type === 'matching') {
+                html += `<div class="space-y-4">`;
+                q.columnA.forEach((itemA, aIdx) => {
+                    let userObj = userAnswers[idx] || {};
+                    let selectedB = userObj[aIdx];
+                    html += `
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+                            <div class="font-medium text-sm sm:text-base text-slate-800 md:w-1/2">${itemA}</div>
+                            <div class="md:w-1/2 w-full">
+                                <select onchange="saveMatchingAnswer(${idx}, ${aIdx}, this.value)" class="w-full p-2.5 bg-white border border-slate-300 rounded-lg text-xs sm:text-sm font-medium text-slate-700 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                                    <option value="">-- Chọn ý tương ứng ở Cột B --</option>
+                    `;
+                    q.columnB.forEach((itemB, bIdx) => {
+                        let selectedAttr = (selectedB == bIdx) ? 'selected' : '';
+                        html += `<option value="${bIdx}" ${selectedAttr}>${itemB}</option>`;
+                    });
+                    html += `
+                                </select>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            }
+
+            container.innerHTML = html;
+            updateJumpGridUI();
+        }
+
+        function saveAnswer(qIdx, val) {
+            userAnswers[qIdx] = val;
+            loadQuestion(qIdx);
+        }
+
+        function saveMultipleAnswer(qIdx, val) {
+            if (!userAnswers[qIdx]) userAnswers[qIdx] = [];
+            let arr = userAnswers[qIdx];
+            let pos = arr.indexOf(val);
+            if (pos > -1) {
+                arr.splice(pos, 1);
+            } else {
+                arr.push(val);
+                arr.sort((a,b)=>a-b);
+            }
+            loadQuestion(qIdx);
+        }
+
+        function saveTFAnswer(qIdx, sIdx, val) {
+            if (!userAnswers[qIdx]) userAnswers[qIdx] = {};
+            userAnswers[qIdx][sIdx] = val;
+            loadQuestion(qIdx);
+        }
+
+        function saveMatchingAnswer(qIdx, aIdx, val) {
+            if (!userAnswers[qIdx]) userAnswers[qIdx] = {};
+            if (val === "") {
+                delete userAnswers[qIdx][aIdx];
+            } else {
+                userAnswers[qIdx][aIdx] = parseInt(val);
+            }
+            updateJumpGridUI();
+        }
+
+        function nextQuestion() {
+            if (currentIdx < questions.length - 1) {
+                loadQuestion(currentIdx + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentIdx > 0) {
+                loadQuestion(currentIdx - 1);
+            }
+        }
+
+        function goToQuestion(idx) {
+            loadQuestion(idx);
+        }
+
+        function submitQuiz() {
+            let unanswered = 0;
+            questions.forEach((q, idx) => {
+                let ans = userAnswers[idx];
+                if (ans === undefined) {
+                    unanswered++;
+                } else if (q.type === 'multiple' && ans.length === 0) {
+                    unanswered++;
+                } else if (q.type === 'tf-grid' && Object.keys(ans).length < q.statements.length) {
+                    unanswered++;
+                } else if (q.type === 'matching' && Object.keys(ans).length < q.columnA.length) {
+                    unanswered++;
+                }
+            });
+
+            if (unanswered > 0) {
+                if (!confirm(`Bạn còn ${unanswered} câu chưa hoàn thành hoặc chưa trả lời hết. Bạn có chắc chắn muốn nộp bài không?`)) {
+                    return;
+                }
+            } else {
+                if (!confirm("Bạn có chắc chắn muốn nộp bài kiểm tra không?")) {
+                    return;
+                }
+            }
+
+            if (timerInterval) clearInterval(timerInterval);
+
+            let score = 0;
+            questions.forEach((q, idx) => {
+                let ans = userAnswers[idx];
+                if (ans === undefined) return;
+
+                if (q.type === 'single') {
+                    if (ans === q.correct) score++;
+                } else if (q.type === 'multiple') {
+                    if (Array.isArray(ans) && ans.length === q.correct.length && ans.every((val, i) => val === q.correct[i])) {
+                        score++;
+                    }
+                } else if (q.type === 'tf-grid') {
+                    let correctCount = 0;
+                    q.statements.forEach((st, sIdx) => {
+                        if (ans[sIdx] === st.answer) correctCount++;
+                    });
+                    if (correctCount === q.statements.length) score++;
+                } else if (q.type === 'matching') {
+                    let matchCorrect = true;
+                    q.columnA.forEach((_, aIdx) => {
+                        if (ans[aIdx] !== q.correctMatching[aIdx]) matchCorrect = false;
+                    });
+                    if (matchCorrect) score++;
+                }
+            });
+
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('timer-container').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+
+            document.getElementById('score-display').innerText = `${score} / 20`;
+            let percent = Math.round((score / 20) * 100);
+            document.getElementById('score-percent-text').innerText = `Đạt: ${percent}%`;
+        }
+
+        function reviewAnswers() {
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+            
+            const container = document.getElementById('question-container');
+            let reviewHTML = `
+                <div class="mb-6 p-4 bg-indigo-50 border border-indigo-200 rounded-xl flex justify-between items-center">
+                    <span class="font-bold text-indigo-900 text-sm"><i class="fa-solid fa-book-open"></i> Chế độ xem lại đáp án & Giải thích chi tiết</span>
+                    <button onclick="backToResult()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-semibold transition">Quay lại bảng điểm</button>
+                </div>
+                <div class="space-y-10">
+            `;
+
+            questions.forEach((q, idx) => {
+                let ans = userAnswers[idx];
+                let isCorrect = false;
+
+                if (q.type === 'single') {
+                    if (ans === q.correct) isCorrect = true;
+                } else if (q.type === 'multiple') {
+                    if (Array.isArray(ans) && ans.length === q.correct.length && ans.every((val, i) => val === q.correct[i])) isCorrect = true;
+                } else if (q.type === 'tf-grid') {
+                    let correctCount = 0;
+                    if (ans) {
+                        q.statements.forEach((st, sIdx) => {
+                            if (ans[sIdx] === st.answer) correctCount++;
+                        });
+                    }
+                    if (correctCount === q.statements.length) isCorrect = true;
+                } else if (q.type === 'matching') {
+                    let matchCorrect = true;
+                    if (ans) {
+                        q.columnA.forEach((_, aIdx) => {
+                            if (ans[aIdx] !== q.correctMatching[aIdx]) matchCorrect = false;
+                        });
+                    } else {
+                        matchCorrect = false;
+                    }
+                    if (matchCorrect) isCorrect = true;
+                }
+
+                let statusBadge = isCorrect 
+                    ? `<span class="bg-emerald-100 text-emerald-800 text-xs px-3 py-1 rounded-full font-bold"><i class="fa-solid fa-check"></i> Đúng</span>`
+                    : `<span class="bg-rose-100 text-rose-800 text-xs px-3 py-1 rounded-full font-bold"><i class="fa-solid fa-xmark"></i> Sai / Chưa làm</span>`;
+
+                reviewHTML += `
+                    <div class="border border-slate-200 rounded-2xl p-6 bg-white shadow-sm space-y-4">
+                        <div class="flex justify-between items-start gap-4">
+                            <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-lg border border-indigo-100">Câu ${idx + 1}</span>
+                            ${statusBadge}
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900">${q.question}</h3>
+                `;
+
+                if (q.type === 'single') {
+                    reviewHTML += `<div class="space-y-2">`;
+                    q.options.forEach((opt, oIdx) => {
+                        let style = "border-slate-200 bg-white text-slate-700";
+                        if (oIdx === q.correct) style = "border-emerald-500 bg-emerald-50 text-emerald-900 font-semibold ring-1 ring-emerald-500";
+                        else if (ans === oIdx && oIdx !== q.correct) style = "border-rose-500 bg-rose-50 text-rose-900 line-through";
+                        
+                        reviewHTML += `<div class="p-3 rounded-xl border ${style} text-sm">${opt}</div>`;
+                    });
+                    reviewHTML += `</div>`;
+                } else if (q.type === 'multiple') {
+                    reviewHTML += `<div class="space-y-2">`;
+                    q.options.forEach((opt, oIdx) => {
+                        let isChosen = ans && ans.includes(oIdx);
+                        let isRight = q.correct.includes(oIdx);
+                        let style = "border-slate-200 bg-white text-slate-700";
+                        if (isRight) style = "border-emerald-500 bg-emerald-50 text-emerald-900 font-semibold ring-1 ring-emerald-500";
+                        else if (isChosen && !isRight) style = "border-rose-500 bg-rose-50 text-rose-900 line-through";
+
+                        reviewHTML += `<div class="p-3 rounded-xl border ${style} text-sm">${opt}</div>`;
+                    });
+                    reviewHTML += `</div>`;
+                } else if (q.type === 'tf-grid') {
+                    reviewHTML += `<div class="space-y-2">`;
+                    q.statements.forEach((st, sIdx) => {
+                        let userVal = ans ? ans[sIdx] : undefined;
+                        let correctVal = st.answer;
+                        let isStCorrect = (userVal === correctVal);
+                        reviewHTML += `
+                            <div class="p-3 rounded-xl border ${isStCorrect ? 'border-emerald-300 bg-emerald-50/40' : 'border-rose-300 bg-rose-50/40'} text-sm flex justify-between items-center gap-4">
+                                <span>${sIdx + 1}. ${st.text}</span>
+                                <span class="shrink-0 font-bold ${correctVal ? 'text-emerald-700' : 'text-rose-700'}">Đáp án đúng: ${correctVal ? 'ĐÚNG' : 'SAI'}</span>
+                            </div>
+                        `;
+                    });
+                    reviewHTML += `</div>`;
+                } else if (q.type === 'matching') {
+                    reviewHTML += `<div class="space-y-2 text-sm bg-slate-50 p-4 rounded-xl border border-slate-200">`;
+                    q.columnA.forEach((itemA, aIdx) => {
+                        let correctBIdx = q.correctMatching[aIdx];
+                        let correctText = q.columnB[correctBIdx];
+                        reviewHTML += `<div class="py-1"><strong class="text-indigo-900">${itemA}</strong> <i class="fa-solid fa-arrow-right text-xs text-slate-400 mx-1"></i> <span class="text-emerald-700 font-medium">${correctText}</span></div>`;
+                    });
+                    reviewHTML += `</div>`;
+                }
+
+                reviewHTML += `
+                        <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs sm:text-sm leading-relaxed">
+                            <strong><i class="fa-solid fa-circle-info"></i> Giải thích:</strong> ${q.explanation}
+                        </div>
+                    </div>
+                `;
+            });
+
+            reviewHTML += `</div>`;
+            container.innerHTML = reviewHTML;
+        }
+
+        function backToResult() {
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+        }
+
+        function restartQuiz() {
+            userAnswers = {};
+            currentIdx = 0;
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('welcome-screen').classList.remove('hidden');
+            document.getElementById('timer-container').classList.add('hidden');
+            if (timerInterval) clearInterval(timerInterval);
+        }
+    </script>
+</body>
+</html>
